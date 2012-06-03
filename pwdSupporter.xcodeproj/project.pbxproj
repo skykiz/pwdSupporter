@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F7354D1C157BBEA500FBEF32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7354D1B157BBEA500FBEF32 /* UIKit.framework */; };
+		F7354D1E157BBEA500FBEF32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7354D1D157BBEA500FBEF32 /* Foundation.framework */; };
+		F7354D20157BBEA500FBEF32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7354D1F157BBEA500FBEF32 /* CoreGraphics.framework */; };
+		F7354D22157BBEA500FBEF32 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7354D21157BBEA500FBEF32 /* CoreData.framework */; };
+		F7354D28157BBEA500FBEF32 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7354D26157BBEA500FBEF32 /* InfoPlist.strings */; };
+		F7354D2A157BBEA500FBEF32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7354D29157BBEA500FBEF32 /* main.m */; };
+		F7354D2E157BBEA600FBEF32 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7354D2D157BBEA600FBEF32 /* AppDelegate.m */; };
+		F7354D31157BBEA600FBEF32 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7354D2F157BBEA600FBEF32 /* MainStoryboard.storyboard */; };
+		F7354D34157BBEA600FBEF32 /* pwdSupporter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F7354D32157BBEA600FBEF32 /* pwdSupporter.xcdatamodeld */; };
+		F7354D37157BBEA600FBEF32 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7354D36157BBEA600FBEF32 /* MasterViewController.m */; };
+		F7354D3A157BBEA600FBEF32 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7354D39157BBEA600FBEF32 /* DetailViewController.m */; };
+		F7354D42157BBEA600FBEF32 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7354D41157BBEA600FBEF32 /* SenTestingKit.framework */; };
+		F7354D43157BBEA600FBEF32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7354D1B157BBEA500FBEF32 /* UIKit.framework */; };
+		F7354D44157BBEA600FBEF32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7354D1D157BBEA500FBEF32 /* Foundation.framework */; };
+		F7354D45157BBEA600FBEF32 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7354D21157BBEA500FBEF32 /* CoreData.framework */; };
+		F7354D4D157BBEA600FBEF32 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7354D4B157BBEA600FBEF32 /* InfoPlist.strings */; };
+		F7354D50157BBEA600FBEF32 /* pwdSupporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F7354D4F157BBEA600FBEF32 /* pwdSupporterTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F7354D46157BBEA600FBEF32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7354D0E157BBEA500FBEF32 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7354D16157BBEA500FBEF32;
+			remoteInfo = pwdSupporter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F7354D17157BBEA500FBEF32 /* pwdSupporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pwdSupporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7354D1B157BBEA500FBEF32 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F7354D1D157BBEA500FBEF32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F7354D1F157BBEA500FBEF32 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F7354D21157BBEA500FBEF32 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F7354D25157BBEA500FBEF32 /* pwdSupporter-Info.plist */ = {isa = PBXFileReference; path = "pwdSupporter-Info.plist"; sourceTree = "<group>"; };
+		F7354D27157BBEA500FBEF32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F7354D29157BBEA500FBEF32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F7354D2B157BBEA500FBEF32 /* pwdSupporter-Prefix.pch */ = {isa = PBXFileReference; path = "pwdSupporter-Prefix.pch"; sourceTree = "<group>"; };
+		F7354D2C157BBEA500FBEF32 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		F7354D2D157BBEA600FBEF32 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F7354D30157BBEA600FBEF32 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		F7354D33157BBEA600FBEF32 /* pwdSupporter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = pwdSupporter.xcdatamodel; sourceTree = "<group>"; };
+		F7354D35157BBEA600FBEF32 /* MasterViewController.h */ = {isa = PBXFileReference; path = MasterViewController.h; sourceTree = "<group>"; };
+		F7354D36157BBEA600FBEF32 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		F7354D38157BBEA600FBEF32 /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
+		F7354D39157BBEA600FBEF32 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		F7354D40157BBEA600FBEF32 /* pwdSupporterTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pwdSupporterTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7354D41157BBEA600FBEF32 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		F7354D4A157BBEA600FBEF32 /* pwdSupporterTests-Info.plist */ = {isa = PBXFileReference; path = "pwdSupporterTests-Info.plist"; sourceTree = "<group>"; };
+		F7354D4C157BBEA600FBEF32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F7354D4E157BBEA600FBEF32 /* pwdSupporterTests.h */ = {isa = PBXFileReference; path = pwdSupporterTests.h; sourceTree = "<group>"; };
+		F7354D4F157BBEA600FBEF32 /* pwdSupporterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pwdSupporterTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F7354D14157BBEA500FBEF32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7354D1C157BBEA500FBEF32 /* UIKit.framework in Frameworks */,
+				F7354D1E157BBEA500FBEF32 /* Foundation.framework in Frameworks */,
+				F7354D20157BBEA500FBEF32 /* CoreGraphics.framework in Frameworks */,
+				F7354D22157BBEA500FBEF32 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7354D3C157BBEA600FBEF32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7354D42157BBEA600FBEF32 /* SenTestingKit.framework in Frameworks */,
+				F7354D43157BBEA600FBEF32 /* UIKit.framework in Frameworks */,
+				F7354D44157BBEA600FBEF32 /* Foundation.framework in Frameworks */,
+				F7354D45157BBEA600FBEF32 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F7354D0C157BBEA500FBEF32 = {
+			isa = PBXGroup;
+			children = (
+				F7354D23157BBEA500FBEF32 /* pwdSupporter */,
+				F7354D48157BBEA600FBEF32 /* pwdSupporterTests */,
+				F7354D1A157BBEA500FBEF32 /* Frameworks */,
+				F7354D18157BBEA500FBEF32 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F7354D18157BBEA500FBEF32 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7354D17157BBEA500FBEF32 /* pwdSupporter.app */,
+				F7354D40157BBEA600FBEF32 /* pwdSupporterTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7354D1A157BBEA500FBEF32 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7354D1B157BBEA500FBEF32 /* UIKit.framework */,
+				F7354D1D157BBEA500FBEF32 /* Foundation.framework */,
+				F7354D1F157BBEA500FBEF32 /* CoreGraphics.framework */,
+				F7354D21157BBEA500FBEF32 /* CoreData.framework */,
+				F7354D41157BBEA600FBEF32 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7354D23157BBEA500FBEF32 /* pwdSupporter */ = {
+			isa = PBXGroup;
+			children = (
+				F7354D2C157BBEA500FBEF32 /* AppDelegate.h */,
+				F7354D2D157BBEA600FBEF32 /* AppDelegate.m */,
+				F7354D2F157BBEA600FBEF32 /* MainStoryboard.storyboard */,
+				F7354D35157BBEA600FBEF32 /* MasterViewController.h */,
+				F7354D36157BBEA600FBEF32 /* MasterViewController.m */,
+				F7354D38157BBEA600FBEF32 /* DetailViewController.h */,
+				F7354D39157BBEA600FBEF32 /* DetailViewController.m */,
+				F7354D32157BBEA600FBEF32 /* pwdSupporter.xcdatamodeld */,
+				F7354D24157BBEA500FBEF32 /* Supporting Files */,
+			);
+			path = pwdSupporter;
+			sourceTree = "<group>";
+		};
+		F7354D24157BBEA500FBEF32 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F7354D25157BBEA500FBEF32 /* pwdSupporter-Info.plist */,
+				F7354D26157BBEA500FBEF32 /* InfoPlist.strings */,
+				F7354D29157BBEA500FBEF32 /* main.m */,
+				F7354D2B157BBEA500FBEF32 /* pwdSupporter-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F7354D48157BBEA600FBEF32 /* pwdSupporterTests */ = {
+			isa = PBXGroup;
+			children = (
+				F7354D4E157BBEA600FBEF32 /* pwdSupporterTests.h */,
+				F7354D4F157BBEA600FBEF32 /* pwdSupporterTests.m */,
+				F7354D49157BBEA600FBEF32 /* Supporting Files */,
+			);
+			path = pwdSupporterTests;
+			sourceTree = "<group>";
+		};
+		F7354D49157BBEA600FBEF32 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F7354D4A157BBEA600FBEF32 /* pwdSupporterTests-Info.plist */,
+				F7354D4B157BBEA600FBEF32 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F7354D16157BBEA500FBEF32 /* pwdSupporter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7354D53157BBEA600FBEF32 /* Build configuration list for PBXNativeTarget "pwdSupporter" */;
+			buildPhases = (
+				F7354D13157BBEA500FBEF32 /* Sources */,
+				F7354D14157BBEA500FBEF32 /* Frameworks */,
+				F7354D15157BBEA500FBEF32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pwdSupporter;
+			productName = pwdSupporter;
+			productReference = F7354D17157BBEA500FBEF32 /* pwdSupporter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F7354D3F157BBEA600FBEF32 /* pwdSupporterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7354D56157BBEA600FBEF32 /* Build configuration list for PBXNativeTarget "pwdSupporterTests" */;
+			buildPhases = (
+				F7354D3B157BBEA600FBEF32 /* Sources */,
+				F7354D3C157BBEA600FBEF32 /* Frameworks */,
+				F7354D3D157BBEA600FBEF32 /* Resources */,
+				F7354D3E157BBEA600FBEF32 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F7354D47157BBEA600FBEF32 /* PBXTargetDependency */,
+			);
+			name = pwdSupporterTests;
+			productName = pwdSupporterTests;
+			productReference = F7354D40157BBEA600FBEF32 /* pwdSupporterTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F7354D0E157BBEA500FBEF32 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = TeamKNOx;
+			};
+			buildConfigurationList = F7354D11157BBEA500FBEF32 /* Build configuration list for PBXProject "pwdSupporter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F7354D0C157BBEA500FBEF32;
+			productRefGroup = F7354D18157BBEA500FBEF32 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F7354D16157BBEA500FBEF32 /* pwdSupporter */,
+				F7354D3F157BBEA600FBEF32 /* pwdSupporterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F7354D15157BBEA500FBEF32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7354D28157BBEA500FBEF32 /* InfoPlist.strings in Resources */,
+				F7354D31157BBEA600FBEF32 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7354D3D157BBEA600FBEF32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7354D4D157BBEA600FBEF32 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F7354D3E157BBEA600FBEF32 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F7354D13157BBEA500FBEF32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7354D2A157BBEA500FBEF32 /* main.m in Sources */,
+				F7354D2E157BBEA600FBEF32 /* AppDelegate.m in Sources */,
+				F7354D34157BBEA600FBEF32 /* pwdSupporter.xcdatamodeld in Sources */,
+				F7354D37157BBEA600FBEF32 /* MasterViewController.m in Sources */,
+				F7354D3A157BBEA600FBEF32 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7354D3B157BBEA600FBEF32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7354D50157BBEA600FBEF32 /* pwdSupporterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F7354D47157BBEA600FBEF32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7354D16157BBEA500FBEF32 /* pwdSupporter */;
+			targetProxy = F7354D46157BBEA600FBEF32 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F7354D26157BBEA500FBEF32 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7354D27157BBEA500FBEF32 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F7354D2F157BBEA600FBEF32 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7354D30157BBEA600FBEF32 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		F7354D4B157BBEA600FBEF32 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7354D4C157BBEA600FBEF32 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F7354D51157BBEA600FBEF32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F7354D52157BBEA600FBEF32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F7354D54157BBEA600FBEF32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "pwdSupporter/pwdSupporter-Prefix.pch";
+				INFOPLIST_FILE = "pwdSupporter/pwdSupporter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F7354D55157BBEA600FBEF32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "pwdSupporter/pwdSupporter-Prefix.pch";
+				INFOPLIST_FILE = "pwdSupporter/pwdSupporter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F7354D57157BBEA600FBEF32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/pwdSupporter.app/pwdSupporter";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "pwdSupporter/pwdSupporter-Prefix.pch";
+				INFOPLIST_FILE = "pwdSupporterTests/pwdSupporterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		F7354D58157BBEA600FBEF32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/pwdSupporter.app/pwdSupporter";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "pwdSupporter/pwdSupporter-Prefix.pch";
+				INFOPLIST_FILE = "pwdSupporterTests/pwdSupporterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F7354D11157BBEA500FBEF32 /* Build configuration list for PBXProject "pwdSupporter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7354D51157BBEA600FBEF32 /* Debug */,
+				F7354D52157BBEA600FBEF32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7354D53157BBEA600FBEF32 /* Build configuration list for PBXNativeTarget "pwdSupporter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7354D54157BBEA600FBEF32 /* Debug */,
+				F7354D55157BBEA600FBEF32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F7354D56157BBEA600FBEF32 /* Build configuration list for PBXNativeTarget "pwdSupporterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7354D57157BBEA600FBEF32 /* Debug */,
+				F7354D58157BBEA600FBEF32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F7354D32157BBEA600FBEF32 /* pwdSupporter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F7354D33157BBEA600FBEF32 /* pwdSupporter.xcdatamodel */,
+			);
+			currentVersion = F7354D33157BBEA600FBEF32 /* pwdSupporter.xcdatamodel */;
+			path = pwdSupporter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F7354D0E157BBEA500FBEF32 /* Project object */;
+}
