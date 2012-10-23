@@ -15,7 +15,6 @@
 		F7354D2A157BBEA500FBEF32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7354D29157BBEA500FBEF32 /* main.m */; };
 		F7354D2E157BBEA600FBEF32 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7354D2D157BBEA600FBEF32 /* AppDelegate.m */; };
 		F7354D31157BBEA600FBEF32 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7354D2F157BBEA600FBEF32 /* MainStoryboard.storyboard */; };
-		F7354D34157BBEA600FBEF32 /* pwdSupporter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F7354D32157BBEA600FBEF32 /* pwdSupporter.xcdatamodeld */; };
 		F7354D37157BBEA600FBEF32 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7354D36157BBEA600FBEF32 /* MasterViewController.m */; };
 		F7354D3A157BBEA600FBEF32 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7354D39157BBEA600FBEF32 /* DetailViewController.m */; };
 		F7354D42157BBEA600FBEF32 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7354D41157BBEA600FBEF32 /* SenTestingKit.framework */; };
@@ -24,6 +23,12 @@
 		F7354D45157BBEA600FBEF32 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7354D21157BBEA500FBEF32 /* CoreData.framework */; };
 		F7354D4D157BBEA600FBEF32 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7354D4B157BBEA600FBEF32 /* InfoPlist.strings */; };
 		F7354D50157BBEA600FBEF32 /* pwdSupporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F7354D4F157BBEA600FBEF32 /* pwdSupporterTests.m */; };
+		F776F4DD15884F9F00C9E72D /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = F776F4DC15884F9F00C9E72D /* Person.m */; };
+		F776F4E115884FFD00C9E72D /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = F776F4E015884FFD00C9E72D /* Address.m */; };
+		F776F4E415885EB500C9E72D /* pwdSupporter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F776F4E215885EB500C9E72D /* pwdSupporter.xcdatamodeld */; };
+		F77E86FE1635FB0100E943B2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F77E86FD1635FB0100E943B2 /* Default-568h@2x.png */; };
+		F77E87051636022000E943B2 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77E87041636022000E943B2 /* ConnectViewController.m */; };
+		F77E87061636022000E943B2 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77E87041636022000E943B2 /* ConnectViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,24 +47,31 @@
 		F7354D1D157BBEA500FBEF32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7354D1F157BBEA500FBEF32 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F7354D21157BBEA500FBEF32 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		F7354D25157BBEA500FBEF32 /* pwdSupporter-Info.plist */ = {isa = PBXFileReference; path = "pwdSupporter-Info.plist"; sourceTree = "<group>"; };
+		F7354D25157BBEA500FBEF32 /* pwdSupporter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "pwdSupporter-Info.plist"; sourceTree = "<group>"; };
 		F7354D27157BBEA500FBEF32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F7354D29157BBEA500FBEF32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F7354D2B157BBEA500FBEF32 /* pwdSupporter-Prefix.pch */ = {isa = PBXFileReference; path = "pwdSupporter-Prefix.pch"; sourceTree = "<group>"; };
-		F7354D2C157BBEA500FBEF32 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		F7354D2B157BBEA500FBEF32 /* pwdSupporter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pwdSupporter-Prefix.pch"; sourceTree = "<group>"; };
+		F7354D2C157BBEA500FBEF32 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F7354D2D157BBEA600FBEF32 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F7354D30157BBEA600FBEF32 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		F7354D33157BBEA600FBEF32 /* pwdSupporter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = pwdSupporter.xcdatamodel; sourceTree = "<group>"; };
-		F7354D35157BBEA600FBEF32 /* MasterViewController.h */ = {isa = PBXFileReference; path = MasterViewController.h; sourceTree = "<group>"; };
+		F7354D35157BBEA600FBEF32 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		F7354D36157BBEA600FBEF32 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		F7354D38157BBEA600FBEF32 /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
+		F7354D38157BBEA600FBEF32 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		F7354D39157BBEA600FBEF32 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		F7354D40157BBEA600FBEF32 /* pwdSupporterTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pwdSupporterTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7354D41157BBEA600FBEF32 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		F7354D4A157BBEA600FBEF32 /* pwdSupporterTests-Info.plist */ = {isa = PBXFileReference; path = "pwdSupporterTests-Info.plist"; sourceTree = "<group>"; };
+		F7354D4A157BBEA600FBEF32 /* pwdSupporterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "pwdSupporterTests-Info.plist"; sourceTree = "<group>"; };
 		F7354D4C157BBEA600FBEF32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F7354D4E157BBEA600FBEF32 /* pwdSupporterTests.h */ = {isa = PBXFileReference; path = pwdSupporterTests.h; sourceTree = "<group>"; };
+		F7354D4E157BBEA600FBEF32 /* pwdSupporterTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pwdSupporterTests.h; sourceTree = "<group>"; };
 		F7354D4F157BBEA600FBEF32 /* pwdSupporterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pwdSupporterTests.m; sourceTree = "<group>"; };
+		F776F4DB15884F9F00C9E72D /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		F776F4DC15884F9F00C9E72D /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		F776F4DF15884FFD00C9E72D /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
+		F776F4E015884FFD00C9E72D /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
+		F776F4E315885EB500C9E72D /* pwdSupporter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = pwdSupporter.xcdatamodel; sourceTree = "<group>"; };
+		F77E86FD1635FB0100E943B2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F77E87031636022000E943B2 /* ConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectViewController.h; sourceTree = "<group>"; };
+		F77E87041636022000E943B2 /* ConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +103,7 @@
 		F7354D0C157BBEA500FBEF32 = {
 			isa = PBXGroup;
 			children = (
+				F77E86FD1635FB0100E943B2 /* Default-568h@2x.png */,
 				F7354D23157BBEA500FBEF32 /* pwdSupporter */,
 				F7354D48157BBEA600FBEF32 /* pwdSupporterTests */,
 				F7354D1A157BBEA500FBEF32 /* Frameworks */,
@@ -122,14 +135,20 @@
 		F7354D23157BBEA500FBEF32 /* pwdSupporter */ = {
 			isa = PBXGroup;
 			children = (
+				F776F4E215885EB500C9E72D /* pwdSupporter.xcdatamodeld */,
 				F7354D2C157BBEA500FBEF32 /* AppDelegate.h */,
 				F7354D2D157BBEA600FBEF32 /* AppDelegate.m */,
-				F7354D2F157BBEA600FBEF32 /* MainStoryboard.storyboard */,
 				F7354D35157BBEA600FBEF32 /* MasterViewController.h */,
 				F7354D36157BBEA600FBEF32 /* MasterViewController.m */,
 				F7354D38157BBEA600FBEF32 /* DetailViewController.h */,
 				F7354D39157BBEA600FBEF32 /* DetailViewController.m */,
-				F7354D32157BBEA600FBEF32 /* pwdSupporter.xcdatamodeld */,
+				F77E87031636022000E943B2 /* ConnectViewController.h */,
+				F77E87041636022000E943B2 /* ConnectViewController.m */,
+				F776F4DF15884FFD00C9E72D /* Address.h */,
+				F776F4E015884FFD00C9E72D /* Address.m */,
+				F776F4DB15884F9F00C9E72D /* Person.h */,
+				F776F4DC15884F9F00C9E72D /* Person.m */,
+				F7354D2F157BBEA600FBEF32 /* MainStoryboard.storyboard */,
 				F7354D24157BBEA500FBEF32 /* Supporting Files */,
 			);
 			path = pwdSupporter;
@@ -238,6 +257,7 @@
 			files = (
 				F7354D28157BBEA500FBEF32 /* InfoPlist.strings in Resources */,
 				F7354D31157BBEA600FBEF32 /* MainStoryboard.storyboard in Resources */,
+				F77E86FE1635FB0100E943B2 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,9 +294,12 @@
 			files = (
 				F7354D2A157BBEA500FBEF32 /* main.m in Sources */,
 				F7354D2E157BBEA600FBEF32 /* AppDelegate.m in Sources */,
-				F7354D34157BBEA600FBEF32 /* pwdSupporter.xcdatamodeld in Sources */,
 				F7354D37157BBEA600FBEF32 /* MasterViewController.m in Sources */,
 				F7354D3A157BBEA600FBEF32 /* DetailViewController.m in Sources */,
+				F776F4DD15884F9F00C9E72D /* Person.m in Sources */,
+				F776F4E115884FFD00C9E72D /* Address.m in Sources */,
+				F776F4E415885EB500C9E72D /* pwdSupporter.xcdatamodeld in Sources */,
+				F77E87051636022000E943B2 /* ConnectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7354D50157BBEA600FBEF32 /* pwdSupporterTests.m in Sources */,
+				F77E87061636022000E943B2 /* ConnectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +402,7 @@
 				GCC_PREFIX_HEADER = "pwdSupporter/pwdSupporter-Prefix.pch";
 				INFOPLIST_FILE = "pwdSupporter/pwdSupporter-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -389,6 +414,7 @@
 				GCC_PREFIX_HEADER = "pwdSupporter/pwdSupporter-Prefix.pch";
 				INFOPLIST_FILE = "pwdSupporter/pwdSupporter-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -446,6 +472,7 @@
 				F7354D55157BBEA600FBEF32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F7354D56157BBEA600FBEF32 /* Build configuration list for PBXNativeTarget "pwdSupporterTests" */ = {
 			isa = XCConfigurationList;
@@ -454,16 +481,17 @@
 				F7354D58157BBEA600FBEF32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		F7354D32157BBEA600FBEF32 /* pwdSupporter.xcdatamodeld */ = {
+		F776F4E215885EB500C9E72D /* pwdSupporter.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				F7354D33157BBEA600FBEF32 /* pwdSupporter.xcdatamodel */,
+				F776F4E315885EB500C9E72D /* pwdSupporter.xcdatamodel */,
 			);
-			currentVersion = F7354D33157BBEA600FBEF32 /* pwdSupporter.xcdatamodel */;
+			currentVersion = F776F4E315885EB500C9E72D /* pwdSupporter.xcdatamodel */;
 			path = pwdSupporter.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

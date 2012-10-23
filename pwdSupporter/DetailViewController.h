@@ -8,10 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
+@class ConnectViewController;
+#import "Person.h"
 
-@property (strong, nonatomic) id detailItem;
+@interface DetailViewController : UIViewController<UISplitViewControllerDelegate, NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (strong, nonatomic) ConnectViewController *connectViewController;
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) Person *detailItem;
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UITextField *nameField;
+@property (strong, nonatomic) IBOutlet UITextField *urlField;
+@property (strong, nonatomic) IBOutlet UITextField *idField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
+
 
 @end
