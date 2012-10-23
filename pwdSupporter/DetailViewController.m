@@ -26,6 +26,8 @@
 @synthesize urlField = _urlField;
 @synthesize idField = _idField;
 @synthesize passwordField = _passwordField;
+@synthesize memoField = _memoField;
+
 @synthesize masterPopoverController = _masterPopoverController;
 
 #pragma mark - Managing the detail item
@@ -54,12 +56,14 @@
         self.urlField.text = self.detailItem.address.loginURL;
         self.idField.text = self.detailItem.address.loginID;
         self.passwordField.text = self.detailItem.address.loginPWD;
+        self.memoField.text = self.detailItem.address.loginMemo;
     }
     else{
         self.nameField.text = nil;
         self.urlField.text = nil;
         self.idField.text = nil;
         self.passwordField.text = nil;
+        self.memoField.text = nil;
     }
 }
 
@@ -75,6 +79,7 @@
     self.detailItem.address.loginURL = self.urlField.text;
     self.detailItem.address.loginID = self.idField.text;
     self.detailItem.address.loginPWD = self.passwordField.text;
+    self.detailItem.address.loginMemo = self.memoField.text;
     
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
@@ -107,6 +112,7 @@
     self.urlField.text = nil;
     self.idField.text = nil;
     self.passwordField.text = nil;
+    self.memoField.text = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
