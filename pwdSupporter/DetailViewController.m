@@ -101,6 +101,18 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+
+    sections_ = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Title:",@""), NSLocalizedString(@"URL:",@""), NSLocalizedString(@"Login-ID:",@""), NSLocalizedString(@"Login-Password:",@""), NSLocalizedString(@"Memo:",@""), nil];
+    
+    NSArray* rows1 = [NSArray arrayWithObjects:NSLocalizedString(@"", @""), nil];
+    NSArray* rows2 = [NSArray arrayWithObjects:NSLocalizedString(@"", @""), nil];
+    NSArray* rows3 = [NSArray arrayWithObjects:NSLocalizedString(@"", @""), nil];
+    NSArray* rows4 = [NSArray arrayWithObjects:NSLocalizedString(@"", @""), nil];
+    NSArray* rows5 = [NSArray arrayWithObjects:NSLocalizedString(@"", @""), nil];
+    NSArray* objects = [NSArray arrayWithObjects:rows1, rows2, rows3, rows4, rows5, nil];
+    
+    dataSource_ = [[NSDictionary alloc] initWithObjects:objects forKeys:sections_];
+
 }
 
 - (void)viewDidUnload
