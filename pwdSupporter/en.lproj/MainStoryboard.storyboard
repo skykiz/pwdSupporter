@@ -146,6 +146,15 @@
                                             <segue destination="00B-3q-Fg9" kind="push" identifier="showWebView" id="HA4-9U-aMV"/>
                                         </connections>
                                     </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hYi-3d-52f">
+                                        <rect key="frame" x="0.0" y="9" width="320" height="416"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="21" id="tk8-ZP-tDD"/>
+                                            <outlet property="delegate" destination="21" id="NjH-aS-blw"/>
+                                        </connections>
+                                    </tableView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -156,8 +165,9 @@
                         <outlet property="idField" destination="LIn-fx-gCJ" id="YAd-r2-ors"/>
                         <outlet property="nameField" destination="t3w-gb-vmb" id="Qb6-2r-YIo"/>
                         <outlet property="passwordField" destination="7NA-4u-INO" id="x5E-bZ-7nM"/>
-                        <outlet property="scrollView" destination="stL-ZW-7Ke" id="4Sx-QG-SG3"/>
+                        <outlet property="scrollView" destination="hYi-3d-52f" id="yNp-Vi-gsG"/>
                         <outlet property="urlField" destination="bwq-U5-kaX" id="ngM-Hd-osQ"/>
+                        <outlet property="view" destination="hYi-3d-52f" id="7r3-wi-ebR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>

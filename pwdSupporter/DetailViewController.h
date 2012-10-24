@@ -11,6 +11,7 @@
 @class ConnectViewController;
 #import "Person.h"
 
+
 @interface DetailViewController : UIViewController<UISplitViewControllerDelegate, UITextFieldDelegate, NSFetchedResultsControllerDelegate>{
     
 @private
@@ -34,13 +35,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) UITextField *memoField;
 
-
-/*
-@property (strong, nonatomic) UITextField *nameField;
-@property (strong, nonatomic) UITextField *urlField;
-@property (strong, nonatomic) UITextField *idField;
-@property (strong, nonatomic) UITextField *passwordField;
-*/
 
 @property (strong, nonatomic) UITextField *textboxTitle;
 @property (strong, nonatomic) UITextField *textboxURL;
