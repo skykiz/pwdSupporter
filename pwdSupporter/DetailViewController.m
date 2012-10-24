@@ -68,17 +68,12 @@ static NSString* identifier = @"basis-cell";
         self.idField.text = self.detailItem.address.loginID;
         self.passwordField.text = self.detailItem.address.loginPWD;
         self.memoField.text = self.detailItem.address.loginMemo;
-        NSLog ( @"%@",self.nameField.text );
         
         _textboxTitle.text = self.detailItem.name;
-        self.textboxTitle.text = @"baka";
         _textboxURL.text = self.detailItem.address.loginURL;
         _textboxID.text = self.detailItem.address.loginID;
         _textboxPassword.text = self.detailItem.address.loginPWD;
         _textboxMemo.text = self.detailItem.address.loginMemo;
-        NSLog ( @"%@",_textboxTitle.text );
-        NSLog ( @"%@",self.textboxTitle.text );
-        NSLog ( @"%@",self.detailItem.name );
     }
     else{
         self.nameField.text = nil;
@@ -109,12 +104,14 @@ static NSString* identifier = @"basis-cell";
     self.detailItem.address.loginPWD = _textboxPassword.text;
     self.detailItem.address.loginMemo = _textboxMemo.text;
     
-    self.detailItem.name = self.nameField.text;
-    self.detailItem.address.loginURL = self.urlField.text;
-    self.detailItem.address.loginID = self.idField.text;
-    self.detailItem.address.loginPWD = self.passwordField.text;
-    self.detailItem.address.loginMemo = self.memoField.text;
+//    self.detailItem.name = self.nameField.text;
+//    self.detailItem.address.loginURL = self.urlField.text;
+//    self.detailItem.address.loginID = self.idField.text;
+//    self.detailItem.address.loginPWD = self.passwordField.text;
+//    self.detailItem.address.loginMemo = self.memoField.text;
     
+    NSLog ( @"%@",self.detailItem.name );
+
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -262,6 +259,7 @@ static NSString* identifier = @"basis-cell";
                         _textboxTitle.placeholder = NSLocalizedString(@"Enter Title", @"");
                     }
                     [cell.contentView addSubview:_textboxTitle];
+                    _textboxTitle.text = self.detailItem.name; 
                     NSLog ( @"%@",_textboxTitle.text );
                     break;
                 default:
@@ -276,6 +274,7 @@ static NSString* identifier = @"basis-cell";
                         _textboxURL.placeholder = NSLocalizedString(@"Enter URL", @"");
                     }
                     [cell.contentView addSubview:_textboxURL];
+                    _textboxURL.text = self.detailItem.address.loginURL;
                     break;
                 default:
                     break;
@@ -290,6 +289,7 @@ static NSString* identifier = @"basis-cell";
                         _textboxID.placeholder = NSLocalizedString(@"Enter login-ID", @"");
                     }
                     [cell.contentView addSubview:_textboxID];
+                    _textboxID.text = self.detailItem.address.loginID;
                     break;
                 default:
                     break;
@@ -304,6 +304,7 @@ static NSString* identifier = @"basis-cell";
                         _textboxPassword.placeholder = NSLocalizedString(@"Enter login-Password", @"");
                     }
                     [cell.contentView addSubview:_textboxPassword];
+                    _textboxPassword.text = self.detailItem.address.loginPWD;
                     break;
                 default:
                     break;
@@ -320,14 +321,13 @@ static NSString* identifier = @"basis-cell";
                         _textboxMemo.placeholder = NSLocalizedString(@"Memo", @"");
                     }
                     [cell.contentView addSubview:_textboxMemo];
+                    _textboxMemo.text = self.detailItem.address.loginMemo;
                     break;
                 default:
                     break;
             }
             break;
-            
     }
-    
     return cell;
 }
 

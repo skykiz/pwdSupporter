@@ -70,6 +70,7 @@
         <!--Detail View Controller - Detail-->
         <scene sceneID="24">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="" title="Detail" id="21" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -170,9 +171,8 @@
                         <outlet property="view" destination="hYi-3d-52f" id="7r3-wi-ebR"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1094" y="64"/>
+            <point key="canvasLocation" x="1078" y="64"/>
         </scene>
         <!--Connect View Controller - Input-->
         <scene sceneID="8L8-r7-2ZP">
@@ -214,6 +214,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="jmt-xp-5jS"/>
+        <segue reference="rCN-iL-ots"/>
     </inferredMetricsTieBreakers>
 </document>
