@@ -10,9 +10,12 @@
 #import "MasterViewController.h"
 #import "ConnectViewController.h"
 
+static NSString* identifier = @"basis-cell";
+
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
+- (UITextField*) textfieldForCell:(const UIView*)cell;
 @end
 
 @implementation DetailViewController
@@ -20,13 +23,21 @@
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize connectViewController = _connectViewController;
 @synthesize managedObjectContext = _managedObjectContext;
+
 @synthesize detailItem = _detailItem;
 @synthesize scrollView = _scrollView;
+
 @synthesize nameField = _nameField;
 @synthesize urlField = _urlField;
 @synthesize idField = _idField;
 @synthesize passwordField = _passwordField;
 @synthesize memoField = _memoField;
+
+@synthesize textboxTitle = _textboxTitle;
+@synthesize textboxURL = _textboxURL;
+@synthesize textboxID = _textboxID;
+@synthesize textboxPassword = _textboxPassword;
+@synthesize textboxMemo = _textboxMemo;
 
 @synthesize masterPopoverController = _masterPopoverController;
 
@@ -57,6 +68,12 @@
         self.idField.text = self.detailItem.address.loginID;
         self.passwordField.text = self.detailItem.address.loginPWD;
         self.memoField.text = self.detailItem.address.loginMemo;
+        
+        self.textboxTitle.text = self.detailItem.name;
+        self.textboxURL.text = self.detailItem.address.loginURL;
+        self.textboxID.text = self.detailItem.address.loginID;
+        self.textboxPassword.text = self.detailItem.address.loginPWD;
+        self.textboxMemo.text = self.detailItem.address.loginMemo;
     }
     else{
         self.nameField.text = nil;
@@ -64,6 +81,12 @@
         self.idField.text = nil;
         self.passwordField.text = nil;
         self.memoField.text = nil;
+        
+        self.textboxTitle.text = nil;
+        self.textboxURL.text = nil;
+        self.textboxID.text = nil;
+        self.textboxPassword.text = nil;
+        self.textboxMemo.text = nil;
     }
 }
 
@@ -75,6 +98,12 @@
         _detailItem.address = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Address class]) 
                                                             inManagedObjectContext:self.managedObjectContext];
     }
+    self.detailItem.name = self.textboxTitle.text;
+    self.detailItem.address.loginURL = self.textboxURL.text;
+    self.detailItem.address.loginID = self.textboxID.text;
+    self.detailItem.address.loginPWD = self.textboxPassword.text;
+    self.detailItem.address.loginMemo = self.textboxMemo.text;
+    
     self.detailItem.name = self.nameField.text;
     self.detailItem.address.loginURL = self.urlField.text;
     self.detailItem.address.loginID = self.idField.text;
@@ -125,6 +154,12 @@
     self.idField.text = nil;
     self.passwordField.text = nil;
     self.memoField.text = nil;
+
+    self.textboxTitle.text = nil;
+    self.textboxURL.text = nil;
+    self.textboxID.text = nil;
+    self.textboxPassword.text = nil;
+    self.textboxMemo.text = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -179,6 +214,145 @@
 
 }
 
+
+
+
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section{
+    id key = [sections_ objectAtIndex:section];
+    return [[dataSource_ objectForKey:key] count];
+}
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [sections_ count];
+}
+
+
+- (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section{
+    return [sections_ objectAtIndex:section];
+}
+
+
+- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if(nil == cell){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    id key = [sections_ objectAtIndex:indexPath.section];
+    cell.textLabel.text = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+	for (UIView* view in cell.contentView.subviews) {
+		if ([view isKindOfClass:[UISwitch class]] || [view isKindOfClass:[UITextField class]]) {
+			[view removeFromSuperview];
+		}
+	}
+    switch (indexPath.section) {
+        case 0:
+            switch(indexPath.row){
+                case 0:
+                    if(!_textboxTitle){
+                        _textboxTitle = [self textfieldForCell:cell];
+                        _textboxTitle.placeholder = NSLocalizedString(@"Enter Title", @"");
+                    }
+                    [cell.contentView addSubview:_textboxTitle];
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 1:
+            switch(indexPath.row){
+                case 0:
+                    if(!_textboxURL){
+                        _textboxURL = [self textfieldForCell:cell];
+                        _textboxURL.placeholder = NSLocalizedString(@"Enter URL", @"");
+                    }
+                    [cell.contentView addSubview:_textboxURL];
+                    break;
+                default:
+                    break;
+            }
+            break;
+            
+        case 2:
+            switch(indexPath.row){
+                case 0:
+                    if(!_textboxID){
+                        _textboxID = [self textfieldForCell:cell];
+                        _textboxID.placeholder = NSLocalizedString(@"Enter login-ID", @"");
+                    }
+                    [cell.contentView addSubview:_textboxID];
+                    break;
+                default:
+                    break;
+            }
+            break;
+            
+        case 3:
+            switch(indexPath.row){
+                case 0:
+                    if(!_textboxPassword){
+                        _textboxPassword = [self textfieldForCell:cell];
+                        _textboxPassword.placeholder = NSLocalizedString(@"Enter login-Password", @"");
+                    }
+                    [cell.contentView addSubview:_textboxPassword];
+                    break;
+                default:
+                    break;
+            }
+            break;
+            
+        case 4:
+            switch(indexPath.row){
+                case 0:
+                    if(!_textboxMemo){
+                        _textboxMemo = [self textfieldForCell:cell];
+                        _textboxMemo.frame = CGRectMake(30, cell.bounds.size.height / 8, cell.bounds.size.width / 16 * 14, cell.bounds.size.height / 4 * 8);
+                        _textboxMemo.contentVerticalAlignment = UIControlContentVerticalAlignmentTop | UIControlContentHorizontalAlignmentLeft;
+                        _textboxMemo.placeholder = NSLocalizedString(@"Memo", @"");
+                    }
+                    [cell.contentView addSubview:_textboxMemo];
+                    break;
+                default:
+                    break;
+            }
+            break;
+            
+    }
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath{
+    
+    if(indexPath.section == 4){
+        return 100;
+    }
+    else{
+        return 44;
+    }
+}
+
+
+-(UITextField*) textfieldForCell:(const UIView*)cell{
+    UITextField* theTextField = [[UITextField alloc] init];
+    theTextField.delegate = self;
+    theTextField.frame = CGRectMake(30, cell.bounds.size.height / 8, cell.bounds.size.width / 16 * 14, cell.bounds.size.height / 4 * 3);
+    theTextField.borderStyle = UITextBorderStyleRoundedRect;
+    theTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    
+    return theTextField;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField*)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+    
+}
 
 
 @end

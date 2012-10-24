@@ -32,6 +32,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *urlField;
 @property (strong, nonatomic) IBOutlet UITextField *idField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
+@property (strong, nonatomic) UITextField *memoField;
 
 
 /*
@@ -40,7 +41,6 @@
 @property (strong, nonatomic) UITextField *idField;
 @property (strong, nonatomic) UITextField *passwordField;
 */
-@property (strong, nonatomic) UITextField *memoField;
 
 @property (strong, nonatomic) UITextField *textboxTitle;
 @property (strong, nonatomic) UITextField *textboxURL;
