@@ -25,13 +25,6 @@ static NSString* identifier = @"basis-cell";
 @synthesize managedObjectContext = _managedObjectContext;
 
 @synthesize detailItem = _detailItem;
-@synthesize scrollView = _scrollView;
-
-@synthesize nameField = _nameField;
-@synthesize urlField = _urlField;
-@synthesize idField = _idField;
-@synthesize passwordField = _passwordField;
-@synthesize memoField = _memoField;
 
 @synthesize textboxTitle = _textboxTitle;
 @synthesize textboxURL = _textboxURL;
@@ -63,12 +56,6 @@ static NSString* identifier = @"basis-cell";
     [self becomeFirstResponder];
 
     if (self.detailItem) {
-        self.nameField.text = self.detailItem.name;
-        self.urlField.text = self.detailItem.address.loginURL;
-        self.idField.text = self.detailItem.address.loginID;
-        self.passwordField.text = self.detailItem.address.loginPWD;
-        self.memoField.text = self.detailItem.address.loginMemo;
-        
         _textboxTitle.text = self.detailItem.name;
         _textboxURL.text = self.detailItem.address.loginURL;
         _textboxID.text = self.detailItem.address.loginID;
@@ -76,12 +63,6 @@ static NSString* identifier = @"basis-cell";
         _textboxMemo.text = self.detailItem.address.loginMemo;
     }
     else{
-        self.nameField.text = nil;
-        self.urlField.text = nil;
-        self.idField.text = nil;
-        self.passwordField.text = nil;
-        self.memoField.text = nil;
-
         _textboxTitle.text = nil;
         _textboxURL.text = nil;
         _textboxID.text = nil;
@@ -103,14 +84,6 @@ static NSString* identifier = @"basis-cell";
     self.detailItem.address.loginID = _textboxID.text;
     self.detailItem.address.loginPWD = _textboxPassword.text;
     self.detailItem.address.loginMemo = _textboxMemo.text;
-    
-//    self.detailItem.name = self.nameField.text;
-//    self.detailItem.address.loginURL = self.urlField.text;
-//    self.detailItem.address.loginID = self.idField.text;
-//    self.detailItem.address.loginPWD = self.passwordField.text;
-//    self.detailItem.address.loginMemo = self.memoField.text;
-    
-    NSLog ( @"%@",self.detailItem.name );
 
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
@@ -150,13 +123,6 @@ static NSString* identifier = @"basis-cell";
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    self.scrollView = nil;
-    self.nameField.text = nil;
-    self.urlField.text = nil;
-    self.idField.text = nil;
-    self.passwordField.text = nil;
-    self.memoField.text = nil;
-
     self.textboxTitle.text = nil;
     self.textboxURL.text = nil;
     self.textboxID.text = nil;
