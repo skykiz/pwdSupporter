@@ -8,6 +8,7 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "ConnectViewController.h"
 #import "Person.h"
 #import "Address.h"
 
@@ -36,6 +37,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     self.detailViewController.managedObjectContext = self.managedObjectContext;
+    
+    self.connectViewController =  (ConnectViewController *)[[ConnectViewController alloc] init];
+
     
     // Set up the edit and add buttons.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -128,6 +132,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -177,8 +182,6 @@
      [self.detailViewController setManagedObjectContext:self.fetchedResultsController.managedObjectContext];
      
     [self performSegueWithIdentifier:@"showDetail" sender:self];
-
- }
 */
 
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -186,22 +189,35 @@
         self.detailViewController.detailItem = selectedObject;
         self.detailViewController.managedObjectContext = self.fetchedResultsController.managedObjectContext;
     }
-
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
-//    if(self.tableView.editing){
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Person *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [[segue destinationViewController] setDetailItem:selectedObject];
     }
     [[segue destinationViewController] setManagedObjectContext:self.fetchedResultsController.managedObjectContext];
-//    }
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+
+    Person *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    [self.connectViewController setDetailItem:selectedObject];
+	[[self navigationController] pushViewController:self.connectViewController animated:YES];
 
 }
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (indexPath.row == 0 || indexPath.row%2 == 0) {
+		UIColor *altCellColor = [UIColor colorWithWhite:0.5 alpha:0.1];
+		cell.backgroundColor = altCellColor;
+	}
+}
+
+
 
 #pragma mark - Fetched results controller
 

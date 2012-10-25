@@ -10,6 +10,7 @@
 #import "DetailViewController.h"
 
 @interface ConnectViewController ()
+@property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @end
 
 @implementation ConnectViewController
@@ -21,12 +22,17 @@
 @synthesize idField = _idField;
 @synthesize passwordField = _passwordField;
 
+@synthesize masterPopoverController = _masterPopoverController;
+
 #pragma mark - Managing the detail item
 
 - (void)setDetailItem:(id)newDetailItem
 {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;        
+    }
+    if (self.masterPopoverController != nil) {
+        [self.masterPopoverController dismissPopoverAnimated:YES];
     }
 }
 
@@ -49,7 +55,7 @@
 	contentView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 	self.view = contentView;
 	
-	CGRect webFrame = [[UIScreen mainScreen] applicationFrame];
+	CGRect webFrame = [[UIScreen mainScreen] bounds];
 
 	myWebView = [[UIWebView alloc] initWithFrame:webFrame];
 	myWebView.backgroundColor = [UIColor whiteColor];
@@ -59,7 +65,21 @@
 	myWebView.delegate = self;
 	[contentView addSubview: myWebView];
 	
-    
+	// create the UIToolbar at the bottom of the view controller
+	//
+	toolbar = [UIToolbar new];
+	toolbar.barStyle = UIBarStyleDefault;
+	
+	// size up the toolbar and set its frame
+	[toolbar sizeToFit];
+	CGFloat toolbarHeight = [toolbar frame].size.height;
+	CGRect mainViewBounds = self.view.bounds;
+	[toolbar setFrame:CGRectMake(CGRectGetMinX(mainViewBounds),
+								 CGRectGetMinY(mainViewBounds) + CGRectGetHeight(mainViewBounds) - (toolbarHeight * 2.0) + 2.0,
+								 CGRectGetWidth(mainViewBounds),
+								 toolbarHeight)];
+	
+	[self.view addSubview:toolbar];
 }
 
 - (void)viewDidLoad
@@ -77,6 +97,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationItem.title = _detailItem.name;
+    //    NSURL *url = [NSURL URLWithString:@"http://www.yahoo.co.jp"];
+    NSURL *url = [NSURL URLWithString:_detailItem.address.loginURL];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    [myWebView loadRequest:req];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated

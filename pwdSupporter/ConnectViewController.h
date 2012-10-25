@@ -13,6 +13,7 @@
 @interface ConnectViewController : UIViewController <UIWebViewDelegate, NSFetchedResultsControllerDelegate>
 {
 	UIWebView *myWebView;
+	UIToolbar *toolbar;
 }
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) Person *detailItem;
