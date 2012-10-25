@@ -80,6 +80,7 @@
 								 toolbarHeight)];
 	
 	[self.view addSubview:toolbar];
+    [self createToolbarItems];
 }
 
 - (void)viewDidLoad
@@ -103,6 +104,7 @@
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     [myWebView loadRequest:req];
     
+    [self copyToID];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -120,6 +122,45 @@
 	[super viewDidDisappear:animated];
 }
 
+- (void)createToolbarItems
+{
+    UIBarButtonItem *idBtn =
+    [[UIBarButtonItem alloc]
+     initWithTitle:@"     ID     "
+     style:UIBarButtonItemStyleBordered
+     target:self
+     action:@selector(copyToID)
+     ];
 
+    UIBarButtonItem *pwdBtn =
+    [[UIBarButtonItem alloc]
+     initWithTitle:@"Password"
+     style:UIBarButtonItemStyleBordered
+     target:self
+     action:@selector(copyToPassword)
+     ];
+
+	UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+																			  target:nil
+																			  action:nil];
+    
+	NSArray *items = [NSArray arrayWithObjects: /*systemItem, addItem, */idBtn, pwdBtn, nil];
+	[toolbar setItems:items animated:NO];
+
+}
+
+- (void)copyToID
+{
+    UIPasteboard* board = [UIPasteboard generalPasteboard];
+    if(_detailItem.address.loginID)
+        board.string = _detailItem.address.loginID;
+}
+
+- (void)copyToPassword
+{
+    UIPasteboard* board = [UIPasteboard generalPasteboard];
+    if(_detailItem.address.loginPWD)
+        board.string = _detailItem.address.loginPWD;
+}
 
 @end
