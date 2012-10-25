@@ -18,8 +18,8 @@
     NSArray* sections_;
     NSDictionary* dataSource_;
     
-    NSInteger animatedCount;
-    CGFloat animatedDistance;
+//    CGFloat animatedDistance;
+    CGRect originalFrame;
 }
 
 @property (strong, nonatomic) ConnectViewController *connectViewController;

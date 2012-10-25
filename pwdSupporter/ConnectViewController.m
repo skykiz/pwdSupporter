@@ -144,7 +144,7 @@
 																			  target:nil
 																			  action:nil];
     
-	NSArray *items = [NSArray arrayWithObjects: /*systemItem, addItem, */idBtn, pwdBtn, nil];
+	NSArray *items = [NSArray arrayWithObjects: /*systemItem, addItem, */flexItem, idBtn, pwdBtn, nil];
 	[toolbar setItems:items animated:NO];
 
 }

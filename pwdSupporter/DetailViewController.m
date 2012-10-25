@@ -103,6 +103,9 @@ static NSString* identifier = @"basis-cell";
 {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
+    
+	originalFrame = [[UIScreen mainScreen] bounds];
+
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
 
@@ -116,7 +119,6 @@ static NSString* identifier = @"basis-cell";
     NSArray* objects = [NSArray arrayWithObjects:rows1, rows2, rows3, rows4, rows5, nil];
     
     dataSource_ = [[NSDictionary alloc] initWithObjects:objects forKeys:sections_];
-    
 }
 
 - (void)viewDidUnload
@@ -184,7 +186,6 @@ static NSString* identifier = @"basis-cell";
 
 
 
-
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section{
     id key = [sections_ objectAtIndex:section];
     return [[dataSource_ objectForKey:key] count];
@@ -223,9 +224,10 @@ static NSString* identifier = @"basis-cell";
                     if(!_textboxTitle){
                         _textboxTitle = [self textfieldForCell:cell];
                         _textboxTitle.placeholder = NSLocalizedString(@"Enter Title", @"");
+                        _textboxTitle.keyboardType = UIKeyboardTypeDefault;
                     }
                     [cell.contentView addSubview:_textboxTitle];
-                    _textboxTitle.text = self.detailItem.name; 
+                    _textboxTitle.text = self.detailItem.name;
                     NSLog ( @"%@",_textboxTitle.text );
                     break;
                 default:
@@ -238,6 +240,9 @@ static NSString* identifier = @"basis-cell";
                     if(!_textboxURL){
                         _textboxURL = [self textfieldForCell:cell];
                         _textboxURL.placeholder = NSLocalizedString(@"Enter URL", @"");
+                        _textboxURL.keyboardType = UIKeyboardTypeURL;
+                        _textboxURL.autocorrectionType = UITextAutocorrectionTypeNo;
+
                     }
                     [cell.contentView addSubview:_textboxURL];
                     _textboxURL.text = self.detailItem.address.loginURL;
@@ -253,6 +258,9 @@ static NSString* identifier = @"basis-cell";
                     if(!_textboxID){
                         _textboxID = [self textfieldForCell:cell];
                         _textboxID.placeholder = NSLocalizedString(@"Enter login-ID", @"");
+                        _textboxID.keyboardType = UITextAutocapitalizationTypeNone;
+                        _textboxID.autocorrectionType = UITextAutocorrectionTypeNo;
+
                     }
                     [cell.contentView addSubview:_textboxID];
                     _textboxID.text = self.detailItem.address.loginID;
@@ -268,6 +276,7 @@ static NSString* identifier = @"basis-cell";
                     if(!_textboxPassword){
                         _textboxPassword = [self textfieldForCell:cell];
                         _textboxPassword.placeholder = NSLocalizedString(@"Enter login-Password", @"");
+                        _textboxPassword.secureTextEntry = YES;
                     }
                     [cell.contentView addSubview:_textboxPassword];
                     _textboxPassword.text = self.detailItem.address.loginPWD;
@@ -285,6 +294,7 @@ static NSString* identifier = @"basis-cell";
                         _textboxMemo.frame = CGRectMake(30, cell.bounds.size.height / 8, cell.bounds.size.width / 16 * 14, cell.bounds.size.height / 4 * 8);
                         _textboxMemo.contentVerticalAlignment = UIControlContentVerticalAlignmentTop | UIControlContentHorizontalAlignmentLeft;
                         _textboxMemo.placeholder = NSLocalizedString(@"Memo", @"");
+                        _textboxMemo.keyboardType = UIKeyboardTypeDefault;
                     }
                     [cell.contentView addSubview:_textboxMemo];
                     _textboxMemo.text = self.detailItem.address.loginMemo;
@@ -318,13 +328,80 @@ static NSString* identifier = @"basis-cell";
     return theTextField;
 }
 
+
+ static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
+ static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
+ static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
+ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
+ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 140;
+ 
+ - (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    CGRect textFieldRect = [self.view.window convertRect:textField.bounds fromView:textField];
+    CGRect viewRect = [self.view.window convertRect:self.view.bounds fromView:self.view];
+ 
+    CGFloat midline = textFieldRect.origin.y + 0.5 * textFieldRect.size.height;
+    CGFloat numerator = midline - viewRect.origin.y - MINIMUM_SCROLL_FRACTION * viewRect.size.height;
+    CGFloat denominator = (MAXIMUM_SCROLL_FRACTION - MINIMUM_SCROLL_FRACTION) * viewRect.size.height;
+    CGFloat heightFraction = numerator / denominator;
+    CGFloat animatedDistance;
+ 
+    if (heightFraction < 0.0){
+        heightFraction = 0.0;
+    }
+    else if (heightFraction > 1.0){
+        heightFraction = 1.0;
+    }
+ 
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    
+    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown){
+        animatedDistance = floor(PORTRAIT_KEYBOARD_HEIGHT * heightFraction);
+    }
+    else{
+        animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction);
+    }
+ 
+    CGRect viewFrame = self.view.frame;
+    
+    if(textField == _textboxTitle){
+
+    }else if(textField == _textboxURL){
+        
+    }else if(textField == _textboxID){
+        
+    }else if(textField == _textboxPassword){
+        viewFrame.origin.y = animatedDistance - 200;
+    }else if(textField == _textboxMemo){
+        viewFrame.origin.y = animatedDistance - 400;
+    }
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+ 
+    [self.view setFrame:viewFrame];
+ 
+    [UIView commitAnimations];
+}
+ 
+
 -(BOOL)textFieldShouldReturn:(UITextField*)textField
 {
     [textField resignFirstResponder];
+
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
     
+    [self.view setFrame:originalFrame];
+        
+    [UIView commitAnimations];
+
     return YES;
     
 }
+
 
 
 @end
