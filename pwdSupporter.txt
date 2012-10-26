@@ -1,0 +1,18 @@
+samle ソフトの解析
+
+　MasterViewConroller.h
+　MasterViewConroller.m
+　 基本的な動作
+　 　テーブルハンドリング
+　 　　コアデータとの連携
+　 　　＞をタップした時に次の view に映る
+　 　＋ボタンを押した時に新しい項目を追加する
+　 　
+　- (void)insertNewObject:(id)sender
+新しいオブジェクトの追加を行う coreData へのデータベースへの登録も行う。
+　この部分に新たにデータの項目を追加すればよいと思われる。
+　　→要実験
+
+- (NSFetchedResultsController *)fetchedResultsController
+　データベースからのデータの取得。ここからデータを取得してテーブルに格納していく。
+　
