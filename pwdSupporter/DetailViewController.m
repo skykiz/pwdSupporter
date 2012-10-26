@@ -104,6 +104,8 @@ static NSString* identifier = @"basis-cell";
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
     
+//    self.navigationItem.rightBarButtonItem.enabled = NO;
+    
 	originalFrame = [[UIScreen mainScreen] bounds];
 
 	// Do any additional setup after loading the view, typically from a nib.
@@ -119,6 +121,7 @@ static NSString* identifier = @"basis-cell";
     NSArray* objects = [NSArray arrayWithObjects:rows1, rows2, rows3, rows4, rows5, nil];
     
     dataSource_ = [[NSDictionary alloc] initWithObjects:objects forKeys:sections_];
+    
 }
 
 - (void)viewDidUnload
@@ -241,6 +244,7 @@ static NSString* identifier = @"basis-cell";
                         _textboxURL = [self textfieldForCell:cell];
                         _textboxURL.placeholder = NSLocalizedString(@"Enter URL", @"");
                         _textboxURL.keyboardType = UIKeyboardTypeURL;
+                        _textboxURL.keyboardType = UITextAutocapitalizationTypeNone;
                         _textboxURL.autocorrectionType = UITextAutocorrectionTypeNo;
 
                     }
@@ -367,7 +371,7 @@ static NSString* identifier = @"basis-cell";
     if(textField == _textboxTitle){
 
     }else if(textField == _textboxURL){
-        
+
     }else if(textField == _textboxID){
         
     }else if(textField == _textboxPassword){
