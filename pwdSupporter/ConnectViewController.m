@@ -270,7 +270,8 @@
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
     
     if (action == @selector(menu1:) ||
-        action == @selector(menu2:) ){
+        action == @selector(menu2:) ||
+        action == @selector(paste:)){
         return YES;
     }
     return [super canPerformAction:action withSender:sender];
@@ -278,17 +279,19 @@
 
 - (void)menu1:(id)sender
 {
+    [self copyToID];
     NSLog(@"menu1: %@", sender);
 }
 
 - (void)menu2:(id)sender
 {
+    [self copyToPassword];
     NSLog(@"menu2: %@", sender);
 }
 
 - (void)paste:(id)sender
 {
-    return;
+    return [super paste:sender];
 }
 
 @end

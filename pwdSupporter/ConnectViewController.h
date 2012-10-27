@@ -13,6 +13,7 @@
 @interface ConnectViewController : UIViewController <UIWebViewDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate>
 {
 	UIWebView *myWebView;
+//	UIWebDocumentView *myWebView;
 	UIToolbar *toolbar;
     BOOL _observing;
 }
