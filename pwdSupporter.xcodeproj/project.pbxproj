@@ -33,6 +33,7 @@
 		F77E86FE1635FB0100E943B2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F77E86FD1635FB0100E943B2 /* Default-568h@2x.png */; };
 		F77E87051636022000E943B2 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77E87041636022000E943B2 /* ConnectViewController.m */; };
 		F77E87061636022000E943B2 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77E87041636022000E943B2 /* ConnectViewController.m */; };
+		F7B282C4163A3DEB00075EE3 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B282C3163A3DEB00075EE3 /* Twitter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		F77E86FD1635FB0100E943B2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F77E87031636022000E943B2 /* ConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectViewController.h; sourceTree = "<group>"; };
 		F77E87041636022000E943B2 /* ConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectViewController.m; sourceTree = "<group>"; };
+		F7B282C3163A3DEB00075EE3 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7B282C4163A3DEB00075EE3 /* Twitter.framework in Frameworks */,
 				F7354D1C157BBEA500FBEF32 /* UIKit.framework in Frameworks */,
 				F7354D1E157BBEA500FBEF32 /* Foundation.framework in Frameworks */,
 				F7354D20157BBEA500FBEF32 /* CoreGraphics.framework in Frameworks */,
@@ -122,6 +125,7 @@
 		F7354D0C157BBEA500FBEF32 = {
 			isa = PBXGroup;
 			children = (
+				F7B282C3163A3DEB00075EE3 /* Twitter.framework */,
 				F77E86FD1635FB0100E943B2 /* Default-568h@2x.png */,
 				F7354D23157BBEA500FBEF32 /* pwdSupporter */,
 				F7354D48157BBEA600FBEF32 /* pwdSupporterTests */,

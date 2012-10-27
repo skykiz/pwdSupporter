@@ -8,6 +8,7 @@
 
 #import "ConnectViewController.h"
 #import "DetailViewController.h"
+#import <Twitter/TWTweetComposeViewController.h>
 
 @interface ConnectViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -86,7 +87,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    return;
+
 }
 
 - (void)viewDidUnload
@@ -105,6 +106,25 @@
     [myWebView loadRequest:req];
     
     [self copyToID];
+    
+    // Start observing
+    if (!_observing) {
+        NSNotificationCenter *center;
+        center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self
+                   selector:@selector(keyboardWillShow:)
+                       name:UIKeyboardWillShowNotification
+                     object:nil];
+        [center addObserver:self
+                   selector:@selector(keybaordWillHide:)
+                       name:UIKeyboardWillHideNotification
+                     object:nil];
+        
+        _observing = YES;
+    }
+
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -115,6 +135,21 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
 	[super viewWillDisappear:animated];
+
+    // Stop observing
+    if (_observing) {
+        NSNotificationCenter *center;
+        center = [NSNotificationCenter defaultCenter];
+        [center removeObserver:self
+                          name:UIKeyboardWillShowNotification
+                        object:nil];
+        [center removeObserver:self
+                          name:UIKeyboardWillHideNotification
+                        object:nil];
+        
+        _observing = NO;
+    }
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -140,11 +175,19 @@
      action:@selector(copyToPassword)
      ];
 
+    UIBarButtonItem *tweetBtn =
+    [[UIBarButtonItem alloc]
+     initWithTitle:@"tweet"
+     style:UIBarButtonItemStyleBordered
+     target:self
+     action:@selector(tweetLogin)
+     ];
+    
 	UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
 																			  target:nil
 																			  action:nil];
     
-	NSArray *items = [NSArray arrayWithObjects: /*systemItem, addItem, */flexItem, idBtn, pwdBtn, nil];
+	NSArray *items = [NSArray arrayWithObjects: tweetBtn, /*systemItem, addItem, */flexItem, idBtn, pwdBtn, nil];
 	[toolbar setItems:items animated:NO];
 
 }
@@ -163,4 +206,90 @@
         board.string = _detailItem.address.loginPWD;
 }
 
+- (void)tweetLogin
+{
+    // ビューコントローラの初期化
+    TWTweetComposeViewController *tweetViewController = [[TWTweetComposeViewController alloc] init];
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateFormat  = @"yyyy/MM/dd HH:mm:ss";
+    NSString *str = [df stringFromDate:[NSDate date]];
+    
+    // 送信文字列を設定
+    NSString* tweetSentense = [NSString stringWithFormat:@"%@ is log-in at %@ on %@.", _detailItem.address.loginID, _detailItem.name, str];;
+    
+    [tweetViewController setInitialText:tweetSentense];
+    
+    // 送信画像を設定
+//    [tweetViewController addImage:[UIImage imageNamed:@"test.png"]];
+    
+    // イベントハンドラ定義
+    tweetViewController.completionHandler = ^(TWTweetComposeViewControllerResult res) {
+        if (res == TWTweetComposeViewControllerResultCancelled) {
+            NSLog(@"キャンセル");
+        }
+        else if (res == TWTweetComposeViewControllerResultDone) {
+            NSLog(@"成功");
+        }
+        [self dismissModalViewControllerAnimated:YES];
+    };
+    
+    // 送信View表示
+    [self presentModalViewController:tweetViewController animated:YES];
+    
+}
+
+- (void)keyboardWillShow:(NSNotification *)notificatioin
+{
+
+    NSMutableArray* menuItems = [NSMutableArray array];
+    
+    UIMenuController* menuController = [UIMenuController sharedMenuController];
+    [menuController setTargetRect:CGRectZero inView:self.view];
+    menuController.arrowDirection = UIMenuControllerArrowDown;
+    
+    [menuItems addObject:
+     [[UIMenuItem alloc] initWithTitle:@"login-ID"
+                                action:@selector(menu1:)]];
+    [menuItems addObject:
+     [[UIMenuItem alloc] initWithTitle:@"login-PWD"
+                                action:@selector(menu2:)]];
+    
+    menuController.menuItems = menuItems;
+    [menuController setMenuVisible:YES animated:YES];
+
+    
+    return;
+}
+
+- (void)keybaordWillHide:(NSNotification*)notification
+{
+    return;
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    
+    if (action == @selector(menu1:) ||
+        action == @selector(menu2:) ){
+        return YES;
+    }
+    return [super canPerformAction:action withSender:sender];
+}
+
+- (void)menu1:(id)sender
+{
+    NSLog(@"menu1: %@", sender);
+}
+
+- (void)menu2:(id)sender
+{
+    NSLog(@"menu2: %@", sender);
+}
+
+- (void)paste:(id)sender
+{
+    return;
+}
+
 @end
+

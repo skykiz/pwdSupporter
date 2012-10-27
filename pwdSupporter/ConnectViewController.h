@@ -10,10 +10,11 @@
 #import <UIKit/UIKit.h>
 #import "Person.h"
 
-@interface ConnectViewController : UIViewController <UIWebViewDelegate, NSFetchedResultsControllerDelegate>
+@interface ConnectViewController : UIViewController <UIWebViewDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate>
 {
 	UIWebView *myWebView;
 	UIToolbar *toolbar;
+    BOOL _observing;
 }
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) Person *detailItem;
@@ -22,6 +23,5 @@
 @property (strong, nonatomic) NSString *urlField;
 @property (strong, nonatomic) NSString *idField;
 @property (strong, nonatomic) NSString *passwordField;
-
 
 @end
