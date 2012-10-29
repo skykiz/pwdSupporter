@@ -14,6 +14,27 @@
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @end
 
+@implementation UIView (FindFirstResponder)
+
+- (UIView *)findFirstResponder
+{
+    if (self.isFirstResponder) {
+        return self;
+    }
+    
+    for (UIView *subView in self.subviews) {
+        UIView *firstResponder = [subView findFirstResponder];
+        
+        if (firstResponder != nil) {
+            return firstResponder;
+        }
+    }
+    
+    return nil;
+}
+
+@end
+
 @implementation ConnectViewController
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -48,6 +69,12 @@
 - (void)loadView
 {
     [super loadView];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
 	// the base view for this view controller
 	UIView *contentView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
 	contentView.backgroundColor = [UIColor whiteColor];
@@ -80,15 +107,20 @@
 								 CGRectGetWidth(mainViewBounds),
 								 toolbarHeight)];
 	
-	[self.view addSubview:toolbar];
-    [self createToolbarItems];
+//  [self.view addSubview:toolbar];
+//  [self createToolbarItems];
+
+
+    // Add the Insert button
+    UIBarButtonItem *tweetButton= [[UIBarButtonItem alloc]
+                                  initWithTitle:NSLocalizedString(@"Tweet", @"")
+                                  style:UIBarButtonItemStyleBordered
+                                  target:self
+                                  action:@selector(tweetLogin)];
+    
+    self.navigationItem.rightBarButtonItem = tweetButton;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-}
 
 - (void)viewDidUnload
 {
@@ -122,9 +154,6 @@
         
         _observing = YES;
     }
-
-    
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -161,7 +190,7 @@
 {
     UIBarButtonItem *idBtn =
     [[UIBarButtonItem alloc]
-     initWithTitle:@"     ID     "
+     initWithTitle:NSLocalizedString(@"     ID     ", @"")
      style:UIBarButtonItemStyleBordered
      target:self
      action:@selector(copyToID)
@@ -169,7 +198,7 @@
 
     UIBarButtonItem *pwdBtn =
     [[UIBarButtonItem alloc]
-     initWithTitle:@"Password"
+     initWithTitle:NSLocalizedString(@"Password", @"")
      style:UIBarButtonItemStyleBordered
      target:self
      action:@selector(copyToPassword)
@@ -177,7 +206,7 @@
 
     UIBarButtonItem *tweetBtn =
     [[UIBarButtonItem alloc]
-     initWithTitle:@"tweet"
+     initWithTitle:NSLocalizedString(@"tweet", @"")
      style:UIBarButtonItemStyleBordered
      target:self
      action:@selector(tweetLogin)
@@ -249,10 +278,10 @@
     menuController.arrowDirection = UIMenuControllerArrowDown;
     
     [menuItems addObject:
-     [[UIMenuItem alloc] initWithTitle:@"login-ID"
+     [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"login-ID", @"")
                                 action:@selector(menu1:)]];
     [menuItems addObject:
-     [[UIMenuItem alloc] initWithTitle:@"login-PWD"
+     [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"login-PWD", @"")
                                 action:@selector(menu2:)]];
     
     menuController.menuItems = menuItems;
@@ -280,13 +309,21 @@
 - (void)menu1:(id)sender
 {
     [self copyToID];
-    NSLog(@"menu1: %@", sender);
+
+    UIView* firstView = [myWebView findFirstResponder];
+    if ([firstView respondsToSelector:@selector(paste:)]) {
+        [firstView paste:sender];
+    }
 }
 
 - (void)menu2:(id)sender
 {
     [self copyToPassword];
-    NSLog(@"menu2: %@", sender);
+
+    UIView* firstView = [myWebView findFirstResponder];
+    if ([firstView respondsToSelector:@selector(paste:)]) {
+        [firstView paste:sender];
+    }
 }
 
 - (void)paste:(id)sender
@@ -295,4 +332,3 @@
 }
 
 @end
-

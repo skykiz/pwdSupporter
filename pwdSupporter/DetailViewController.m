@@ -388,7 +388,6 @@ static NSString* identifier = @"basis-cell";
  
     [UIView commitAnimations];
 }
- 
 
 -(BOOL)textFieldShouldReturn:(UITextField*)textField
 {

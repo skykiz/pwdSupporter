@@ -25,4 +25,7 @@
 @property (strong, nonatomic) NSString *idField;
 @property (strong, nonatomic) NSString *passwordField;
 
+// - (id)findFirstResponder;
+
+
 @end

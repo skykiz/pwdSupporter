@@ -13,7 +13,7 @@
 
 
 @interface DetailViewController : UIViewController<UISplitViewControllerDelegate, UITextFieldDelegate, NSFetchedResultsControllerDelegate>{
-    
+
 @private
     NSArray* sections_;
     NSDictionary* dataSource_;
